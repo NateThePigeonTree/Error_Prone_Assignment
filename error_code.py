@@ -1,13 +1,13 @@
 # This file has errors that need to be fixed
 # Use what you know about Python to fix them
-
+# 2/14 errors
 import random
-from error_code_function import combat, createMonster  
+from error_code_functions import combat, create_monster  
 
 char_name = input("Please enter a character name:\n")
 char_class = 0
 items = ["sword","shield","potion","spyglass","wand","dagger","spellbook","coinpurse"]
-items = [] 
+
 class_stats = {
     "Fighter":{
         "health":100,
@@ -76,7 +76,7 @@ while True:
             rounds += 1
 
             
-            char_class, monster = combat(monster, char_class)
+            char_class, monster = combat(char_class, monster)
 
             print(f"COMBAT UPDATE -> You: {char_class['health']} HP | Monster: {monster['health']} HP")
 
@@ -86,8 +86,8 @@ while True:
         if rounds >= MAX_ROUNDS:
                 print("\nThe fight drags on... neither side can land a clean hit.")
                 print("You break away and retreat before this becomes your whole personality.")
-        elif monster["health"] > 0:
-            print(f"You were slain by the {monster["name"]}!") 
+        elif char_class["health"] < 0:
+            print(f"You were slain by the {monster[char_name]}!") 
             print("Your vision fades. The dungeon claims another hero.")
             break
         else:
@@ -104,7 +104,7 @@ while True:
     elif choice == "Search" or choice == "2":
         did_find = random.randint(1,100)
 
-        if did_find < char_class["Luck"]:
+        if did_find < char_class["luck"]:
             found_item = random.choice(items) 
             char_class["inventory"].append(found_item)
             print(f"You search the area... and find a {found_item}!")
