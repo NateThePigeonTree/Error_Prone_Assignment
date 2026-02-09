@@ -86,8 +86,8 @@ while True:
         if rounds >= MAX_ROUNDS:
                 print("\nThe fight drags on... neither side can land a clean hit.")
                 print("You break away and retreat before this becomes your whole personality.")
-        elif char_class["health"] < 0:
-            print(f"You were slain by the {monster[char_name]}!") 
+        elif char_class["health"] <= 0:
+            print(f"You were slain by the {monster['name']}!") 
             print("Your vision fades. The dungeon claims another hero.")
             break
         else:
@@ -97,7 +97,7 @@ while True:
                 )
             print(f"You were victorious! You gain {gold} gold!")
         
-            char_class = char_class["gold"] + gold
+            char_class["gold"] += gold
 
             print(f"TOTAL GOLD: {char_class['gold']}") 
 
