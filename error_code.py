@@ -1,6 +1,6 @@
 # This file has errors that need to be fixed
 # Use what you know about Python to fix them
-# 2/14 errors
+
 import random
 from error_code_functions import combat, create_monster  
 
